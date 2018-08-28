@@ -158,7 +158,16 @@ function makeLine( geo ) {
 		case 'wavy': g.setGeometry( geo, function( p ) { return 2 + Math.sin( 50 * p ) } ); break;
 	}
 
-	var material = new MeshLineMaterial( {
+    var attributes = {
+        previous: g.previous,
+        next: g.next,
+        side: g.side,
+        width: g.width,
+        counters: g.counters
+    };
+
+    var material = new MeshLineMaterial( {
+		attributes: attributes,
 		map: strokeTexture,
 		useMap: params.strokes,
 		color: new THREE.Color( colors[ ~~Maf.randomInRange( 0, colors.length ) ] ),

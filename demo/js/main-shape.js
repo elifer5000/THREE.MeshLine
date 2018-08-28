@@ -137,6 +137,17 @@ function collectPoints( source ) {
 
     var l = new MeshLine();
     l.setGeometry( points, function( p ) { return p } );
+
+    var attributes = {
+        previous: l.previous,
+        next: l.next,
+        side: l.side,
+        width: l.width,
+        counters: l.counters
+    };
+
+    material.attributes = attributes;
+
     var line = new THREE.Mesh( l.geometry, material );
     scene.add( line );
 
