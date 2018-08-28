@@ -154,19 +154,19 @@ MeshLine.prototype.process = function() {
 			counters: new THREE.BufferAttribute( new Float32Array( this.counters ), 1 )
 		}
 	} else {
-		this.attributes.position.copyArray(new Float32Array(this.positions));
+		this.attributes.position.set(new Float32Array(this.positions));
 		this.attributes.position.needsUpdate = true;
-		this.attributes.previous.copyArray(new Float32Array(this.previous));
+		this.attributes.previous.set(new Float32Array(this.previous));
 		this.attributes.previous.needsUpdate = true;
-		this.attributes.next.copyArray(new Float32Array(this.next));
+		this.attributes.next.set(new Float32Array(this.next));
 		this.attributes.next.needsUpdate = true;
-		this.attributes.side.copyArray(new Float32Array(this.side));
+		this.attributes.side.set(new Float32Array(this.side));
 		this.attributes.side.needsUpdate = true;
-		this.attributes.width.copyArray(new Float32Array(this.width));
+		this.attributes.width.set(new Float32Array(this.width));
 		this.attributes.width.needsUpdate = true;
-		this.attributes.uv.copyArray(new Float32Array(this.uvs));
+		this.attributes.uv.set(new Float32Array(this.uvs));
 		this.attributes.uv.needsUpdate = true;
-		this.attributes.index.copyArray(new Uint16Array(this.indices_array));
+		this.attributes.index.set(new Uint16Array(this.indices_array));
 		this.attributes.index.needsUpdate = true;
     }
 
@@ -177,9 +177,7 @@ MeshLine.prototype.process = function() {
 	this.geometry.addAttribute( 'width', this.attributes.width );
 	this.geometry.addAttribute( 'uv', this.attributes.uv );
 	this.geometry.addAttribute( 'counters', this.attributes.counters );
-
-	this.geometry.setIndex( this.attributes.index );
-
+	this.geometry.addAttribute( 'index', this.attributes.index );
 }
 
 function memcpy (src, srcOffset, dst, dstOffset, length) {
