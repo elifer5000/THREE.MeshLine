@@ -59,16 +59,6 @@ function makeLine( geo ) {
 	var g = new MeshLine();
 	g.setGeometry( geo );
 
-    var attributes = {
-        previous: g.previous,
-        next: g.next,
-        side: g.side,
-        width: g.width,
-        counters: g.counters
-    };
-
-    material.attributes = attributes;
-
 	var mesh = new THREE.Mesh( g.geometry, material );
 	mesh.position.z += 500;
 	mesh.position.y += 300;

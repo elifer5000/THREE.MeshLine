@@ -46,16 +46,7 @@ function makeLine( geo, c ) {
 	var g = new MeshLine();
 	g.setGeometry( geo );
 
-    var attributes = {
-        previous: g.previous,
-        next: g.next,
-        side: g.side,
-        width: g.width,
-        counters: g.counters
-    };
-
-    var material = new MeshLineMaterial( {
-		attributes: attributes,
+	var material = new MeshLineMaterial( {
 		useMap: false,
 		color: new THREE.Color( colors[ c ] ),
 		opacity: 1,

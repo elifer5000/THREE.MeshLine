@@ -62,16 +62,7 @@ function prepareMesh() {
 	var g = new MeshLine();
 	g.setGeometry( geo, function( p ) { return p; } );
 
-    var attributes = {
-        previous: g.previous,
-        next: g.next,
-        side: g.side,
-        width: g.width,
-        counters: g.counters
-    };
-
-    material = new MeshLineMaterial( {
-		attributes: attributes,
+	material = new MeshLineMaterial( {
 		useMap: true,
 		map: strokeTexture,
 		color: new THREE.Color( new THREE.Color( colors[ ~~Maf.randomInRange( 0, colors.length ) ] ) ),
@@ -246,16 +237,7 @@ function checkIntersection( id ) {
 
 		g.setGeometry( geo );
 
-        var attributes = {
-            previous: g.previous,
-            next: g.next,
-            side: g.side,
-            width: g.width,
-            counters: g.counters
-        };
-
-        material.attributes = attributes;
-    }
+	}
 
 }
 
