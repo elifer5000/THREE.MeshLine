@@ -410,7 +410,15 @@ function MeshLineMaterial( parameters ) {
 			repeat: { type: 'v2', value: this.repeat }
 		},
 		vertexShader: vertexShaderSource.join( '\r\n' ),
-		fragmentShader: fragmentShaderSource.join( '\r\n' )
+		fragmentShader: fragmentShaderSource.join( '\r\n' ),
+		attributes: {
+            previous: { type: 'v3', value: new THREE.Vector3() },
+			next: { type: 'v3', value: new THREE.Vector3() },
+			side: { type: 'f', value: 0 },
+			width: { type: 'f', value: 0 },
+            uv: { type: 'v2', value: new THREE.Vector2() },
+            counters: { type: 'f', value: 0 },
+		}
 	});
 
 	delete parameters.lineWidth;
